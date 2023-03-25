@@ -21,7 +21,7 @@ This Font Viewer application offers a unique and innovative approach to font sel
 
 <div align="center">
 
-<img height=320 alt="demo of Font Viewer App" src="https://raw.githubusercontent.com/rparin/Font-Viewer/main/preview/Demo.gif">
+<img height=320 alt="demo of Font Viewer App" src="https://raw.githubusercontent.com/rparin/Font-Viewer/main/preview/demo.gif">
 
 </div>
 
