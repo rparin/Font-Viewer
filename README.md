@@ -5,7 +5,7 @@
 [![License][license.io]][license-url]
 
 <p align="left">
-Insert Description
+This Font Viewer application offers a unique and innovative approach to font selection by integrating a hand tracking feature built using TensorFlow. Users can interact with the application through hand gestures, enabling them to navigate and browse through an extensive collection of fonts, as well as view them in different sizes and styles.
 </p>
 
 [About](#about) •
@@ -21,13 +21,16 @@ Insert Description
 
 <div align="center">
 
-<img height=350 alt="demo of Font Viewer App" src="https://raw.githubusercontent.com/rparin/Font-Viewer/main/preview/Demo.gif">
+<img height=320 alt="demo of Font Viewer App" src="https://raw.githubusercontent.com/rparin/Font-Viewer/main/preview/Demo.gif">
 
 </div>
 
 ### Features
 
--
+- Hand tracking feature built using TensorFlow for hands-free navigation and browsing of fonts
+- Ability to save favorite fonts to a personal list for easy access
+- View fonts in different sizes and styles, including bold, italic, and strikethrough
+- User-friendly interface with intuitive gesture controls for scrolling, zooming, and selecting fonts
 
 ## Setup
 
