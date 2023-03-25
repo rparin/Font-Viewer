@@ -1,0 +1,13 @@
+<div class="font-header" [ngClass]="{ 'single-header': singleView }">
+  <h2 class="font-name">{{ fontName }}</h2>
+  <button (click)="markFav()" title="Favorite this font">
+    <i class="fa-solid fa-star fa-2x" [ngClass]="{ 'fa-gold': checkFaved() }"></i>
+  </button>
+</div>
+<div class="font-card">
+  <div class="text-container" [ngClass]="{ 'single-container': singleView }">
+    <h1 class="font-text" [ngClass]="fontClass" [style]="fontStyle">
+      {{ fontText }}
+    </h1>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.videobox {
+  width: 200px;
+  height: auto;
+}
+
+.video-btn {
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  border: none;
+  color: black;
+  backdrop-filter: blur(0.15em);
+  background-color: rgba(255, 255, 255, 0.205);
+  border: white solid 0.1rem;
+
+  -webkit-transition: background-color 0.5s ease, border 0.5s ease, color 0.5s ease;
+  -moz-transition: background-color 0.5s ease, border 0.5s ease, color 0.5s ease;
+  -o-transition: background-color 0.5s ease, border 0.5s ease, color 0.5s ease;
+  transition: background-color 0.5s ease, border 0.5s ease, color 0.5s ease;
+}
+
+.webcam-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1;
+}
+
+.video-btn:hover {
+  color: white;
+  backdrop-filter: blur(0.15em);
+  background-color: rgba(0, 0, 0, 0.205);
+  border: white solid 0.1rem;
+}

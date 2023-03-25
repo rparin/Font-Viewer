@@ -1,0 +1,349 @@
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #1e2948;
+  background: linear-gradient(to top, #1e2948 20%, #35446f 100%);
+}
+
+#main-content {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif; /* provide back-up fonts */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  z-index: 1;
+}
+
+.webcam {
+  position: absolute;
+  left: 3rem;
+  top: 3rem;
+}
+
+.font-options-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#input-field {
+  border: none;
+  border-top: 0.2rem solid rgba(255, 255, 255, 0.45);
+  border-bottom: 0.2rem solid rgba(255, 255, 255, 0.45);
+  max-width: 18rem;
+  backdrop-filter: blur(0.15em);
+  background-color: rgba(0, 0, 0, 0.215);
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+.font-options-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  flex-wrap: wrap;
+  /* width: 100%; */
+  /* height: 10vh; */
+  /* background-color: red; */
+}
+
+.fav-big-container {
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fav-container {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: auto;
+  min-width: 20vw;
+  /* gap: 1rem; */
+  border-radius: 0.3rem;
+  backdrop-filter: blur(0.2rem);
+  filter: drop-shadow(0 0 0.9rem rgb(0, 0, 0));
+  background-color: rgba(0, 0, 0, 0.272);
+  margin-top: 0.4rem;
+}
+
+.fav-container .favFontItem:first-child {
+  margin-left: auto;
+}
+
+.fav-container .favFontItem:last-child {
+  margin-right: auto;
+}
+
+/* SCROLLBAR CUSTOMIZATION */
+::-webkit-scrollbar {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.font-container {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  /* width: 100%; */
+  /* height: 50vh; */
+  /* background-color: blue; */
+}
+
+@media (max-width: 750px) {
+  .font-container {
+    flex-direction: column;
+  }
+}
+
+.font-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  /* width: 100%; */
+  /* background-color: green; */
+}
+
+.font-buttons {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+
+  /* button styling */
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(0.15em);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: none;
+
+  -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.button-selected {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.font-buttons:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* font text input */
+.font-text {
+  text-align: center;
+  background: none;
+  /* width: 100%; */
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.w3-animate-left {
+  position: relative;
+  animation: animateleft 0.4s;
+  z-index: 1;
+}
+@keyframes animateleft {
+  from {
+    left: -300px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+.fa-black {
+  color: black;
+}
+
+@media (max-width: 45rem) {
+  .font-container > button {
+    display: none;
+  }
+}
+
+@media (min-width: 45rem) {
+  .font-buttons-container {
+    display: none;
+  }
+}
+
+.slide-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(0.15em);
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+.sliderText {
+  width: 5rem;
+  font-size: 1.5rem;
+}
+
+#slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18rem;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.25);
+  outline: none;
+  opacity: 0.7;
+  border-radius: 1rem;
+
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+#slider:hover {
+  opacity: 1;
+}
+
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: white;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+#slider::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: white;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+#dragWindow {
+  position: absolute;
+  z-index: 9;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  font-family: Arial, Helvetica, sans-serif; /* provide back-up fonts */
+  
+  /* -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease; */
+}
+
+#dragWindowHeader {
+  cursor: move;
+  z-index: 10;
+  
+
+
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  border-radius: 0.2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  backdrop-filter: blur(0.15em);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#dragWindowBody {
+  padding: 1rem;
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(255, 255, 255, 0.425)
+  );
+  backdrop-filter: blur(0.25em);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+#hidden-info {
+  height: 0;
+  width: 200px;
+  opacity: 0;
+  font-size: 1rem;
+  overflow: auto;
+
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.table-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+#hidden-info table {
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  border-collapse: collapse;
+}
+
+#hidden-info td, th {
+  text-align: left;
+  padding: 0.125rem;
+}
+
+#hidden-info tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.info-btn {
+  background: none;
+  border: none;
+  padding: 0.1rem;
+  margin-bottom: 1rem;
+}
+
+.gesture-txt {
+  width: 200px;
+  font-weight: bold;
+  padding: 0.125rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.4rem;
+  background: rgba(0, 0, 0, 0.25);
+}

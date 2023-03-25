@@ -1,0 +1,43 @@
+.fav-card {
+  display: flex;
+  padding: 0.2rem;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  border-right: 0.2rem solid rgba(255, 255, 255, 0.196);
+
+  -webkit-transition: filter 0.5s ease;
+  -moz-transition: filter 0.5s ease;
+  -o-transition: filter 0.5s ease;
+  transition: filter 0.5s ease;
+}
+
+.br-none {
+  border-right: none;
+}
+
+.font-name {
+  color: rgb(255, 255, 255);
+  font-size: 1.3rem;
+  padding: 0.3rem;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+i {
+  display: none;
+}
+
+.fav-card:hover {
+  background-color: rgba(255, 0, 0, 0.057);
+  filter: drop-shadow(0 0 0.9rem rgb(255, 0, 0));
+}
+
+.fav-card:hover > i {
+  margin-top: 0.5rem;
+  margin-left: 0.1rem;
+  display: block;
+}

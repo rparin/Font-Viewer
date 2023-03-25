@@ -1,0 +1,224 @@
+<!-- WEBCAM WINDOW -->
+<div id="dragWindow">
+
+  <!-- WEBCAM WINDOW HEADER -->
+  <div id="dragWindowHeader">
+    <div id="dragWindowTitle">
+      Webcam
+    </div>
+    <i class="fa-solid fa-xmark" (click)="toggleWebcam()"></i>
+  </div>
+
+  <!-- WEBCAM WINDOW BODY -->
+  <div id="dragWindowBody">
+
+    <!-- WEBCAM -->
+    <app-handtracker (onPrediction)="prediction($event)"></app-handtracker>
+
+    <!-- GESTURE TEXT -->
+    <div class="gesture-txt" [innerHTML]="gesture"></div>
+    
+    <!-- SHOW INFO / INSTRUCTIONS BUTTON-->
+    <button class="info-btn" (click)="showInfo()" title="Show Instructions"><i class="fa-regular fa-circle-question" title="Show Instructions"></i></button>
+
+    <!-- HAND GESTURE INFO / INSTRUCTIONS -->
+    <div id="hidden-info">
+      <table>
+        <tr>
+          <th><span class="table-title">Hand Gesture</span></th>
+          <th><span class="table-title">Action</span></th>
+        </tr>
+        <tr>
+          <td>Open Hand</td>
+          <td>Next Font(s)</td>
+        </tr>
+        <tr>
+          <td>Closed Hand</td>
+          <td>Previous Font(s)</td>
+        </tr>
+        <tr>
+          <td>Hand Pointing</td>
+          <td>Increase Font Size by 1</td>
+        </tr>
+        <tr>
+          <td>Two Hands Pointing</td>
+          <td>Increase Font Size by 5</td>
+        </tr>
+        <tr>
+          <td>Hand Pinching</td>
+          <td>Decrease Font Size by 1</td>
+        </tr>
+        <tr>
+          <td>Two Hands Pinching</td>
+          <td>Decrease Font Size by 5</td>
+        </tr>
+        <tr>
+          <td>Two Closed Hands</td>
+          <td>Bold Font</td>
+        </tr>
+        <tr>
+          <td>Two Open Hands</td>
+          <td>Italicize Font</td>
+        </tr>
+        <tr>
+          <td>One Open Hand & One Closed Hand</td>
+          <td>Underline Font</td>
+        </tr>
+        <tr>
+          <td>One Open Hand & One Pointing Hand</td>
+          <td>Strike Font</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- BACKGROUND IMAGE -->
+<canvas #canvas></canvas>
+
+
+
+<!-- MAIN CONTENT PAGE -->
+<main id="main-content">
+  <!-- INPUT TEXT -->
+  <div class="font-options-text">
+    <label for="input-field" hidden>Enter some text</label>
+    <input
+      type="text"
+      id="input-field"
+      placeholder="Enter some text"
+      [(ngModel)]="fontText"/>
+  </div>
+
+  <!-- WEBCAM & FONT BUTTONS -->
+  <div class="font-options-container">
+    <div>
+      <button class="font-buttons"
+        (click)="toggleWebcam()"
+        [ngClass]="{ 'button-selected': webcamOn == true }"
+        title="Show webcam">
+        <i 
+          class="fa-solid fa-video"
+          [ngClass]="{ 'fa-black': webcamOn == true }" 
+          title="Show webcam"></i>
+      </button>
+      <button
+        class="font-buttons"
+        (click)="boldFont()"
+        [ngClass]="{ 'button-selected': fontWeight == 'bold' }"
+        title="Bold font">
+        <i
+          class="fa-solid fa-bold"
+          [ngClass]="{ 'fa-black': fontWeight == 'bold' }"
+          title="Bold font"></i>
+      </button>
+      <button
+        class="font-buttons"
+        (click)="italicizeFont()"
+        [ngClass]="{ 'button-selected': fontStyle == 'italic' }"
+        title="Italicize font">
+        <i
+          class="fa-solid fa-italic"
+          [ngClass]="{ 'fa-black': fontStyle == 'italic' }"
+          title="Italicize font"></i>
+      </button>
+    </div>
+    <div>
+      <button
+        class="font-buttons"
+        (click)="underlineFont()"
+        [ngClass]="{ 'button-selected': underline == true }"
+        title="Underline font">
+        <i
+          class="fa-solid fa-underline"
+          [ngClass]="{ 'fa-black': underline == true }"
+          title="Underline font"></i>
+      </button>
+      <button
+        class="font-buttons"
+        (click)="strikeFont()"
+        [ngClass]="{ 'button-selected': strike == true }"
+        title="Strike font">
+        <i 
+        class="fa-solid fa-strikethrough"
+        [ngClass]="{ 'fa-black': strike == true }"
+        title="Strike font"></i>
+      </button>
+      <button class="font-buttons" (click)="toggleFontView()" title="Toggle font view">
+        <!-- {{ fontViewText }} -->
+        <i
+          *ngIf="fontGalleryToggle"
+          class="fa-solid fa-border-all"
+          title="Toggle font view"></i>
+        <i
+          *ngIf="!fontGalleryToggle"
+          class="fa-solid fa-list"
+          title="Toggle font view"></i>
+      </button>
+    </div>
+  </div>
+
+
+
+  <!-- FONT SIZE SLIDER -->
+  <div class="fav-big-container">
+    <div class="slide-container">
+      <div class="sliderText"><span [innerHTML]="fontSize"></span>px</div>
+      <label for="slider" hidden>Font Slider</label>
+      <input type="range" min="10" max="192" value="16" id="slider" [(ngModel)]="fontSize">
+    </div>
+  </div>
+
+
+
+  <!-- FAVORITES LIST -->
+  <div class="fav-big-container">
+    <div *ngIf="favList" class="fav-container">
+      <app-fav-card
+        (clickDelEvent)="delFavFont($event)"
+        *ngFor="let item of favList; let i = index; let last = last"
+        [fontName]="item"
+        [lastItem]="last"
+        class="favFontItem">
+      </app-fav-card>
+    </div>
+  </div>
+
+
+
+  <!-- FONT CONTENT -->
+  <div class="font-container">
+    <!-- PREVIOUS BUTTON -->
+    <button class="font-buttons m-0" (click)="prevFont()" title="Previous fonts">
+      <i class="fa-solid fa-chevron-left" title="Previous fonts"></i>
+    </button>
+
+    <!-- FONT CARD -->
+    <app-font-card
+      (clickFavEvent)="addFavFont($event)"
+      (clickDelEvent)="delFavFont($event)"
+      *ngFor="let item of [].constructor(galleryItemsAmt); let i = index"
+      [fontClass]="getFont(fontIndex + i)"
+      [fontText]="fontText"
+      [fontStyle]="getFontStyle()"
+      [singleView]="!fontGalleryToggle"
+      [favList]="favList"></app-font-card>
+
+    <!-- NEXT BUTTON -->
+    <button class="font-buttons m-0" (click)="nextFont()" title="Next fonts">
+      <i class="fa-solid fa-chevron-right" title="Next fonts"></i>
+    </button>
+  </div>
+
+  <!-- BOTTOM FONT PAGE BUTTON FOR RESPONSIVENESS -->
+  <div class="font-buttons-container">
+    <button class="font-buttons" (click)="prevFont()" title="Previous fonts">
+      <i class="fa-solid fa-chevron-left" title="Previous fonts"></i>
+    </button>
+    <button class="font-buttons" (click)="nextFont()" title="Next fonts">
+      <i class="fa-solid fa-chevron-right" title="Next fonts"></i>
+    </button>
+  </div>
+</main>
